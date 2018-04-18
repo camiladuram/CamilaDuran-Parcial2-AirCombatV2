@@ -7,6 +7,9 @@ TagManager:
   - Fire
   - Enemy
   - Ally
+  - MarsAlien
+  - JupiterAlien
+  - NeptuneAlien
   layers:
   - Default
   - TransparentFX

@@ -17,8 +17,26 @@ public class Missile : MonoBehaviour {
 
 	void OnCollisionEnter(Collision collision){
 
-		if(collision.collider.gameObject.tag == "Enemy") {
-			GameObject explosion = GameObject.Instantiate (Resources.Load ("Prefabs/Explosion")as GameObject);
+		if(collision.collider.gameObject.tag == "MarsAlien") {
+			GameObject explosion = GameObject.Instantiate (Resources.Load ("Prefabs/MarsExplosion")as GameObject);
+			explosion.transform.position = collision.collider.gameObject.transform.position; 
+
+			Destroy (collision.collider.gameObject);
+
+			Destroy (this.gameObject);
+		}
+
+		if(collision.collider.gameObject.tag == "JupiterAlien") {
+			GameObject explosion = GameObject.Instantiate (Resources.Load ("Prefabs/JupiterExplosion")as GameObject);
+			explosion.transform.position = collision.collider.gameObject.transform.position; 
+
+			Destroy (collision.collider.gameObject);
+
+			Destroy (this.gameObject);
+		}
+
+		if(collision.collider.gameObject.tag == "NeptuneAlien") {
+			GameObject explosion = GameObject.Instantiate (Resources.Load ("Prefabs/NeptuneExplosion")as GameObject);
 			explosion.transform.position = collision.collider.gameObject.transform.position; 
 
 			Destroy (collision.collider.gameObject);
@@ -26,7 +44,7 @@ public class Missile : MonoBehaviour {
 			Destroy (this.gameObject);
 		}
 			
-		if (collision.collider.gameObject.tag == "Ally") {
+		/*if (collision.collider.gameObject.tag == "Ally") {
 
 			//Para el Game Object hijo del que recibe la colision
 			GameObject son = collision.collider.gameObject.transform.Find("LuzVerde").gameObject;
@@ -39,7 +57,7 @@ public class Missile : MonoBehaviour {
 		
 			Destroy (this.gameObject);
 
-		}
+
 
 		}
 	}
